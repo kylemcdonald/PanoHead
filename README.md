@@ -24,6 +24,11 @@ Abstract: *Synthesis and reconstruction of 3D human head has gained increasing i
   - `cd PanoHead`
   - `conda env create -f environment.yml`
   - `conda activate panohead`
+* Then run these commands to setup dependencies for PLY mesh extraction. 
+  - `conda install -c conda-forge plyfile trimesh`
+  - `pip install scikit-image`
+  - `pip uninstall imageio`
+  - `pip install imageio==2.9.0`
 
 
 ## Getting started
@@ -57,6 +62,14 @@ python gen_samples.py --outdir=out --trunc=0.7 --shapes=true --seeds=0-3 \
 # For this application we need to specify dataset folder instead of zip files.
 
 ./gen_pti_script.sh
+```
+
+```.bash
+# Generate full head reconstruction 360 videos and PLY 3D mesh from single RGB image.
+# Please refer to ./gen_pti_script_with_mesh.sh
+# Change target_img and target_seg at top of script to the path of your custom dataset.
+
+./gen_pti_script_with_mesh.sh
 ```
 
 ```.bash

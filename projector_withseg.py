@@ -317,8 +317,8 @@ def run_projection(
 
     if target_img is not None:
         # we actually do not need the seg in this step
-        dataset_kwargs = dnnlib.EasyDict(class_name='training.dataset.ImageFolderDataset', path=target_img, use_labels=True, max_size=None, xflip=False)
-        # dataset_kwargs = dnnlib.EasyDict(class_name='training.dataset.MaskLabeledDataset', img_path=target_img, seg_path=target_seg, use_labels=True, max_size=None, xflip=False)
+        # dataset_kwargs = dnnlib.EasyDict(class_name='training.dataset.ImageFolderDataset', path=target_img, use_labels=True, max_size=None, xflip=False)
+        dataset_kwargs = dnnlib.EasyDict(class_name='training.dataset.MaskLabeledDataset', img_path=target_img, seg_path=target_seg, use_labels=True, max_size=None, xflip=False)
         dataset = dnnlib.util.construct_class_by_name(**dataset_kwargs) # Subclass of training.dataset.Dataset.
         # target_fname = dataset._path + "/" + dataset._image_fnames[idx]
         target_fname = dataset._path + "/" + dataset._image_fnames[idx]
